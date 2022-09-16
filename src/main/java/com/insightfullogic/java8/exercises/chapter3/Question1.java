@@ -19,10 +19,15 @@ public class Question1 {
     }
 
     public static List<String> getNamesAndOrigins(List<Artist> artists) {
-        return Exercises.replaceThisWithSolution();
+        return artists.stream()
+                .flatMap(artist -> Stream.of(artist.getName(), artist.getNationality()))
+                .collect(toList());
     }
 
     public static List<Album> getAlbumsWithAtMostThreeTracks(List<Album> input) {
-        return Exercises.replaceThisWithSolution();
+        return input.stream()
+                // 为什么加{}不行？？
+                .filter(album -> album.getTrackList().size() <= 3)
+                .collect(toList());
     }
 }
