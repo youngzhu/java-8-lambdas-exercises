@@ -11,7 +11,11 @@ import static java.util.stream.Collectors.toList;
 
 public class Question1 {
     public static int addUp(Stream<Integer> numbers) {
-        return Exercises.replaceThisWithSolution();
+        /*
+        第一个参数是初始值
+        第二个参数是二元操作函数 BinaryOperator
+         */
+        return numbers.reduce(0, (acc, num) -> acc+num);
     }
 
     public static List<String> getNamesAndOrigins(List<Artist> artists) {
